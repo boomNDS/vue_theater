@@ -30,17 +30,25 @@
 
                 </div>
             </nav>
-            <div class="columns  is-multiline">
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
-                <moviecard class="column is-4"></moviecard>
+            <div class="columns is-multiline is-6">
+                <div class="column is-4">
+                    <moviecard></moviecard>
+                </div>
+                <div class="column is-4">
+                    <moviecard></moviecard>
+                </div>
+                <div class="column is-4">
+                    <moviecard></moviecard>
+                </div>
+                <div class="column is-4">
+                    <moviecard></moviecard>
+                </div>
+                <div class="column is-4">
+                    <moviecard></moviecard>
+                </div>
+                <div class="column is-4">
+                    <moviecard></moviecard>
+                </div>
             </div>
         </div>
     </div>
@@ -59,6 +67,12 @@
 <style scoped>
 .bookmark{
     font-size: 30px;    
+}
+.red{
+    background: red;
+}
+.green{
+    background: green;
 }
 </style>
 
