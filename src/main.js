@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
+import VueCarousel from 'vue-carousel'
 
+Vue.use(VueCarousel)
 Vue.use(Buefy)
 Vue.config.productionTip = false
 

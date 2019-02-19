@@ -1,6 +1,6 @@
 <template>
-    <div class="Nav">
-        <section class="hero is-fullheight  is-bold">
+    <div>
+        <section class="hero is-bold">
         <!-- Hero header: will stick at the top -->
         <div class="hero-head">
             <nav class="navbar">
@@ -22,23 +22,12 @@
             -->
             <div class="navbar-menu" :class="{ 'is-active': showNav }">
                 <div class="navbar-end">
-                <a class="navbar-item" href="/about">
-                    About
-                </a>
-                <a class="navbar-item" href="/path">
-                    Path
-                </a>
-                <a class="navbar-item" href="/blog">
-                    Blog
-                </a>
+                  <router-link  class="navbar-item" to="/">About</router-link>
+                  <router-link  class="navbar-item" to="/">About</router-link>
+                  <router-link  class="navbar-item" to="/">About</router-link>
                 </div>
             </div>
             </nav>
-        </div>
-        <!-- Hero content: will be in the middle -->
-        <div class="hero-body">
-            <div class="container has-text-centered">
-            </div>
         </div>
         </section>
     </div>
