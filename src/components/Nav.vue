@@ -23,7 +23,7 @@
             <div class="navbar-menu" :class="{ 'is-active': showNav }">
                 <div class="navbar-end">
                   <router-link  class="navbar-item" to="/">About</router-link>
-                  <router-link  class="navbar-item" to="/">About</router-link>
+                  <router-link  class="navbar-item" to="/moviedetail">moviedetail</router-link>
                   <router-link  class="navbar-item" to="/">About</router-link>
                 </div>
             </div>

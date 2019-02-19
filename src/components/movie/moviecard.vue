@@ -7,11 +7,12 @@
         </div>
         <div class="card-content">
             <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <h4 class="is-2">ชื่อเริ่อง :</h4>
+                <h4 class="is-2">แนวหนัง :</h4>
+                <div class="is-grouped">
+                    <button class="button is-warning">ดูรอบหนัง</button>
+                    <button class="button is-info">รายละเอียด</button>
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +29,12 @@ export default {
 </script>
 <style scoped>
 .card{
-    width: 300px;
+    width: 450px;
     height: auto;
+    border-radius: 5%;
+    overflow: hidden;
+}
+.content h4{
+    text-align: left;
 }
 </style>
