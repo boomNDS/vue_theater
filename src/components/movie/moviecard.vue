@@ -2,13 +2,14 @@
     <div class="card">
         <div class="card-image">
             <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            <img src="../../assets/img/friendzone.jpg" alt="Placeholder image">
             </figure>
         </div>
         <div class="card-content">
             <div class="content">
-                <h4 class="is-2">ชื่อเริ่อง :</h4>
-                <h4 class="is-2">แนวหนัง :</h4>
+                <p>{{path}}</p>
+                <h4 class="is-2">ชื่อเริ่อง : {{title}}</h4>
+                <h4 class="is-2">แนวหนัง : <span class="tag is-dark">{{types}}</span></h4>
                 <div class="is-grouped">
                     <button class="button is-warning">ดูรอบหนัง</button>
                     <button class="button is-info">รายละเอียด</button>
@@ -24,7 +25,8 @@ export default {
         return{
 
         }
-    }
+    },
+    props: ['title', 'types', 'path']
 }
 </script>
 <style scoped>

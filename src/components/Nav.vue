@@ -25,6 +25,8 @@
                   <router-link  class="navbar-item" to="/">About</router-link>
                   <router-link  class="navbar-item" to="/moviedetail">moviedetail</router-link>
                   <router-link  class="navbar-item" to="/">About</router-link>
+                  <router-link  class="navbar-item" to="/"><button class="button  is-success  is-outlined">Sign In</button></router-link>
+                  <router-link  class="navbar-item" to="/"><button class="button  is-info is-outlined">Sign Up</button></router-link>
                 </div>
             </div>
             </nav>

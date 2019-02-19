@@ -42,7 +42,7 @@
             </nav>
             <div class="columns is-multiline is-6  is-centered">
                 <div class="column is-4" v-for="n in 9" :key="n">
-                    <moviecard></moviecard>
+                    <moviecard title="pachorn vs world" types="Actions" path="../../assets/img/friendzone.jpg"></moviecard>
                 </div>
             </div>
         </div>
@@ -57,18 +57,10 @@
             Carouselmovie,
             moviecard
         },
-        data(){
-            return{
-
+        data: function () {
+            return {
             }
-        },
-        mounted () {
-                $.getJSON('http://ilikecoding.net/membership/api/memberships', json => {
-                this.products = json.data
-                console.log(json.data)
-                })
-            }
-
+        }
     }
 </script>
 <style scoped>
