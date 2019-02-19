@@ -1,6 +1,9 @@
 <template>
     <div>
         <Carouselmovie>a</Carouselmovie>
+        <div class="recommend">
+            
+        </div>
     </div>
 </template>
 <script>

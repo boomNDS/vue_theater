@@ -1,6 +1,6 @@
 <template>
     <div>
-        <carousel :perPage="1" :autoplayLoop="true" :autoplay="true" :autoplayTimeout="3000" :autoplayHoverPause="true">
+        <carousel :perPage="1" :loop=true :autoplay="true" :autoplayTimeout="2500" :autoplayHoverPause="true">
         <slide>
             <img src="https://lh3.googleusercontent.com/PzTevlWemgnwBj30NFLHWluuIZ-8x0_n8J2tkMV1ujNSnoSqhVFjrrdlnxpzFaRmTw3cIa6Gm4Ds819L25P_=w888">
         </slide>
