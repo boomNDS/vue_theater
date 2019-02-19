@@ -3,6 +3,16 @@
         <Carouselmovie>a</Carouselmovie>
         <div class="container is-fluid">
             <!-- Main container -->
+            <div class="columns is-centered search">
+                <div class="cloumn is-half">
+                    <div class="control has-icons-right searchio">
+                        <input class="input is-hovered" type="text" placeholder="Search Movie ...">
+                        <span class="icon is-small is-right">
+                        <font-awesome-icon icon="bookmark" class="bookmark"/>                        
+                        </span>
+                    </div>
+                </div>
+            </div>
             <nav class="level">
                 <!-- Left side -->
                 <div class="level-left">
@@ -30,23 +40,8 @@
 
                 </div>
             </nav>
-            <div class="columns is-multiline is-6">
-                <div class="column is-4">
-                    <moviecard></moviecard>
-                </div>
-                <div class="column is-4">
-                    <moviecard></moviecard>
-                </div>
-                <div class="column is-4">
-                    <moviecard></moviecard>
-                </div>
-                <div class="column is-4">
-                    <moviecard></moviecard>
-                </div>
-                <div class="column is-4">
-                    <moviecard></moviecard>
-                </div>
-                <div class="column is-4">
+            <div class="columns is-multiline is-6 is-centered">
+                <div class="column is-4" v-for="n in 9" :key="n">
                     <moviecard></moviecard>
                 </div>
             </div>
@@ -73,6 +68,12 @@
 }
 .green{
     background: green;
+}
+.search{
+    margin-top: 10px;
+}
+.searchio{
+    width: 400px;
 }
 </style>
 
