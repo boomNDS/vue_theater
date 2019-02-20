@@ -6,7 +6,7 @@
             <div class="columns is-centered search">
                 <div class="cloumn is-half">
                     <div class="control has-icons-right searchio">
-                        <input class="input is-hovered" type="text" placeholder="Search Movie ...">
+                        <input class="input is-hovered" type="text" placeholder="Search Movie ..." v-model="searchText">
                         <span class="icon is-small is-right">
                         <font-awesome-icon icon="search" class="bookmark"/>                        
                         </span>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="level-item">
                         <div class="select is-rounded ">
-                            <select>
+                            <select v-model="categories_seleted">
                                 <option v-for="item in categories" :key="item.id">{{item.name}}</option>
                             </select>
                         </div>
@@ -39,9 +39,10 @@
 
                 </div>
             </nav>
+            <p>{{whatCategories(categories_seleted)}}</p>
             <div class="columns is-multiline is-6">
-                <div class="column is-3-desktop is-12-mobile" v-for="movie in movies" :key="movie.id">
-                    <moviecard :title="movie.name.th" :types="movies.categories" :path="movie.poster"></moviecard>
+                <div class="column is-3-desktop is-12-mobile" v-for="movie in blogSearchResult" :key="movie.id">
+                    <moviecard :title="movie.name.th" :types="movie.categories" :path="movie.poster"></moviecard>
                 </div>
             </div>
         </div>
@@ -64,15 +65,37 @@
                     { text: 'Save', method: this.save, disabled: !this.dataHasChanged }
                     ],
                 categories: categories,
-                movies: movies
+                movies: movies,
+                searchText: "",
+                categories_seleted: "All"
             }
         },
         methods: {
             
         },
         computed:{
-            SearchCategories(){
-                
+          blogSearchResult(){
+            return this.movies.filter(movie =>{
+              let searchText = this.searchText.toLowerCase()
+              let isMatchingtitleTH = movie.name.th.toLowerCase().includes(searchText)
+              let isMatchingtitleEN = movie.name.en.toLowerCase().includes(searchText)
+              return isMatchingtitleTH | isMatchingtitleEN
+            })
+            },
+            // categoriesSearchResult(){
+            //     return this.movies.filter(movie =>{
+            //         let categories_seleted = this.categories_seleted
+            //     })
+            // },
+            whatCategories(name){
+                categories.forEach(categorie => {
+                    let isMatching = name.includes(categorie.name)
+                    if(isMatching){
+                        console.log(categorie.id)
+                    }else{
+                        console.log("No")
+                    }
+                });
             }
         }
     }
