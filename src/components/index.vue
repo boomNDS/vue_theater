@@ -32,8 +32,7 @@
                     <div class="level-item">
                         <div class="select is-rounded ">
                             <select>
-                                <option>Select dropdown</option>
-                                <option>With options</option>
+                                <option v-for="item in categories" :key="item.id">{{item.name}}</option>
                             </select>
                         </div>
                     </div>                
@@ -41,8 +40,8 @@
                 </div>
             </nav>
             <div class="columns is-multiline is-6">
-                <div class="column is-3-desktop is-12-mobile" v-for="n in 9" :key="n">
-                    <moviecard title="pachorn vs world" types="Actions" path="@/asset/img/friendzone.jpg"></moviecard>
+                <div class="column is-3-desktop is-12-mobile" v-for="movie in movies" :key="movie.id">
+                    <moviecard :title="movie.name.th" :types="movies.categories" :path="movie.poster"></moviecard>
                 </div>
             </div>
         </div>
@@ -51,6 +50,8 @@
 <script>
     import Carouselmovie from './Carouselmovie.vue'
     import moviecard from './movie/moviecard.vue'
+    import categories  from '../assets/data/categories.js'
+    import movies  from '../assets/data/movies.js'
     export default {
         name: 'index',
         components: {
@@ -61,12 +62,19 @@
             return {
                 buttons: [
                     { text: 'Save', method: this.save, disabled: !this.dataHasChanged }
-                    ]
+                    ],
+                categories: categories,
+                movies: movies
             }
         },
         methods: {
             
         },
+        computed:{
+            SearchCategories(){
+                
+            }
+        }
     }
 </script>
 <style scoped>
