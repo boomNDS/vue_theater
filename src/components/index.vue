@@ -8,7 +8,7 @@
                     <div class="control has-icons-right searchio">
                         <input class="input is-hovered" type="text" placeholder="Search Movie ...">
                         <span class="icon is-small is-right">
-                        <font-awesome-icon icon="bookmark" class="bookmark"/>                        
+                        <font-awesome-icon icon="search" class="bookmark"/>                        
                         </span>
                     </div>
                 </div>
@@ -40,9 +40,9 @@
 
                 </div>
             </nav>
-            <div class="columns is-multiline is-6  is-centered">
-                <div class="column is-4" v-for="n in 9" :key="n">
-                    <moviecard title="pachorn vs world" types="Actions" path="../../assets/img/friendzone.jpg"></moviecard>
+            <div class="columns is-multiline is-6">
+                <div class="column is-3-desktop is-12-mobile" v-for="n in 9" :key="n">
+                    <moviecard title="pachorn vs world" types="Actions" path="@/asset/img/friendzone.jpg"></moviecard>
                 </div>
             </div>
         </div>
@@ -59,19 +59,19 @@
         },
         data: function () {
             return {
+                buttons: [
+                    { text: 'Save', method: this.save, disabled: !this.dataHasChanged }
+                    ]
             }
-        }
+        },
+        methods: {
+            
+        },
     }
 </script>
 <style scoped>
 .bookmark{
     font-size: 30px;    
-}
-.red{
-    background: red;
-}
-.green{
-    background: green;
 }
 .search{
     margin-top: 10px;

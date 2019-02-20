@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card-image">
-            <figure class="image is-4by3">
+            <figure class="image is-4by6">
             <img src="../../assets/img/friendzone.jpg" alt="Placeholder image">
             </figure>
         </div>
@@ -31,7 +31,7 @@ export default {
 </script>
 <style scoped>
 .card{
-    width: 450px;
+    width: auto;
     height: auto;
     border-radius: 5%;
     overflow: hidden;

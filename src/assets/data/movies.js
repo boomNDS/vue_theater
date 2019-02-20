@@ -1,4 +1,4 @@
-[
+let movies =[
     { 
         "id": 1, 
         "name": { "en":"Captain Marvel", "th": "กัปตันมาร์เวล" }, 

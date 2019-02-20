@@ -1,4 +1,4 @@
-[
+categories = [
     { "id": 1,
        "name": "Action",
        "color": "#232323"

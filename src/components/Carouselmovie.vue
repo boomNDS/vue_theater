@@ -1,9 +1,9 @@
 <template>
     <div>
-        <carousel :perPage="1" :loop=true :autoplay="true" :autoplayTimeout="2500" :autoplayHoverPause="true">
-        <slide>
+        <carousel :perPage="1" :loop=true :autoplay="true" :autoplayTimeout="2500" :autoplayHoverPause="true" :paginationEnabled="false">
+        <sdlide>
             <img src="https://lh3.googleusercontent.com/PzTevlWemgnwBj30NFLHWluuIZ-8x0_n8J2tkMV1ujNSnoSqhVFjrrdlnxpzFaRmTw3cIa6Gm4Ds819L25P_=w888">
-        </slide>
+        </sdlide>
         <slide>
             <img src="https://lh3.googleusercontent.com/PzTevlWemgnwBj30NFLHWluuIZ-8x0_n8J2tkMV1ujNSnoSqhVFjrrdlnxpzFaRmTw3cIa6Gm4Ds819L25P_=w888">
         </slide>
