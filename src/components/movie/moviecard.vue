@@ -1,13 +1,12 @@
 <template>
     <div class="card">
         <div class="card-image">
-            <figure class="image is-4by3">
-            <img src="../../assets/img/friendzone.jpg" alt="Placeholder image">
+            <figure class="image is-4by6">
+            <img :src="path" alt="Placeholder image">
             </figure>
         </div>
         <div class="card-content">
             <div class="content">
-                <p>{{path}}</p>
                 <h4 class="is-2">ชื่อเริ่อง : {{title}}</h4>
                 <h4 class="is-2">แนวหนัง : <span class="tag is-dark">{{types}}</span></h4>
                 <div class="is-grouped">
@@ -31,7 +30,7 @@ export default {
 </script>
 <style scoped>
 .card{
-    width: 450px;
+    width: auto;
     height: auto;
     border-radius: 5%;
     overflow: hidden;
