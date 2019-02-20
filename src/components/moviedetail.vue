@@ -1,26 +1,27 @@
 <template>
   <div>
+    <p>{{moviesId}}</p>
     <div class="container is-centered">
       <div class="columns notification">
         <div class="column">
           <div class="videoWrapper">
-            <iframe width="560" height="349" :src="movie.video" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="349" :src="movies[moviesId].video" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="column">
-          <h1 class="title is-3">{{movie.name.th+" "}} ({{movie.name.en}})</h1>
+          <h1 class="title is-3">{{movies[moviesId].name.th+" "}} ({{movies[moviesId].name.en}})</h1>
           <div class="has-text-left">
             <p>
               <strong>ผู้กำกับ:</strong>
-              <span v-for="director in movie.director">{{director}}</span>
+              <span v-for="director in movies[moviesId].director">{{director}}</span>
             </p>
             <p>
               <strong>นักแสดง:</strong>
-              <span v-for="actor in movie.actors">{{actor}}</span>
+              <span v-for="actor in movies[moviesId].actors">{{actor}}</span>
             </p>
             <p>
               <strong>หมวดหมู่:</strong>
-              <span v-for="category in movie.categories">{{category+", "}}</span>
+              <span v-for="category in movies[moviesId].categories">{{categories[category].name+" "}}</span>
             </p>
           </div>
         </div>
@@ -30,14 +31,24 @@
 </template>
 <script>
 import movies from "../assets/data/movies.js";
+import categories from "../assets/data/categories.js";
 
 export default {
   name: "moviedetail",
   data: function() {
     return {
       movies: movies,
-      movie: movies[0]
+      moviesId: this.$route.params.id,
+      categories,
     };
+  },
+  methods: {
+    updateMovieId() {
+      this.moviesId = this.$route.params.id;
+    }
+  },
+  watch: {
+    $route: "updateMovieId"
   }
 };
 </script>
