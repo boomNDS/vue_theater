@@ -41,8 +41,8 @@
             </nav>
             <!-- <p>{{whatCategories(categories_seleted)}}</p> -->
             <div class="columns is-multiline is-6">
-                <div class="column is-3-desktop is-12-mobile" v-for="movie in blogSearchResult" :key="movie.id">
-                    <moviecard :title="movie.name.th" :types="movie.categories" :path="movie.poster"></moviecard>
+                <div class="column is-3-desktop is-12-mobile" v-for="movie in showmovies" :key="movie.id">
+                    <moviecard :id="movie.id" :title="movie.name.th" :types="movie.categories" :path="movie.poster"></moviecard>
                 </div>
             </div>
         </div>
@@ -69,6 +69,7 @@
                 searchText: "",
                 categories_seleted: "Action",
                 categories_id: 0,
+                showmovies: movies
             }
         },
         methods: {
@@ -92,17 +93,27 @@
             },
             CategorieResult(){
                 return this.movies.filter(movie =>{
-                    movie['categories'].forEach(id => {
-                        id==categories_id ? console.log(movie.name+"Matching") : console.log(movie.name+"Not Matching");   
-                    });
-                    return movie
+                    for(let i = 0; i < movie.categories.length;i++){
+                        if(this.categories_id == 0){
+                            return movie
+                        }else if(movie.categories[i] == this.categories_id){
+                            return movie
+                        }
+                    }
                 })
             }
         },
         watch: {
             whatCategories(){
                 this.categories_id = this.whatCategories[0].id
+            },
+            categories_id(){
+                this.showmovies = this.CategorieResult
+            },
+            searchText(){
+                this.showmovies = this.blogSearchResult
             }
+            
         },
     }
 </script>

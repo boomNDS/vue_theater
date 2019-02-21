@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>{{moviesId}}</p>
     <div class="container is-centered is-fluid">
       <div class="columns notification">
         <div class="column">
@@ -27,9 +26,7 @@
             </p>
             <p>
               <strong>หมวดหมู่:</strong>
-              <span
-                v-for="category in movies[moviesId].categories"
-              >{{categories[category].name+" "}}</span>
+              <span v-for="category in movies[moviesId].categories">{{categories[category].name+" "}}</span>
             </p>
           </div>
         </div>
@@ -46,7 +43,7 @@
       </div>
       <div class="columns is-multiline is-6">
         <div class="column is-3-desktop is-12-mobile" v-for="movie in movies" :key="movie.id">
-          <moviecard  :title="movie.name.th" :types="movies.categories" :path="movie.poster"></moviecard>
+          <moviecard  :id="movie.id" :title="movie.name.th" :types="movies.categories" :path="movie.poster"></moviecard>
         </div>
       </div>
     </div>
@@ -65,13 +62,13 @@ export default {
   data: function() {
     return {
       movies: movies,
-      moviesId: this.$route.params.id,
+      moviesId: this.$route.params.id-1,
       categories,
     };
   },
   methods: {
     updateMovieId() {
-      this.moviesId = this.$route.params.id;
+      this.moviesId = this.$route.params.id-1;
     }
   },
   watch: {
