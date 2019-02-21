@@ -39,7 +39,7 @@
 
                 </div>
             </nav>
-            <p>{{whatCategories(categories_seleted)}}</p>
+            <!-- <p>{{whatCategories(categories_seleted)}}</p> -->
             <div class="columns is-multiline is-6">
                 <div class="column is-3-desktop is-12-mobile" v-for="movie in blogSearchResult" :key="movie.id">
                     <moviecard :title="movie.name.th" :types="movie.categories" :path="movie.poster"></moviecard>
@@ -67,11 +67,12 @@
                 categories: categories,
                 movies: movies,
                 searchText: "",
-                categories_seleted: "All"
+                categories_seleted: "Action",
+                categories_id: 0,
             }
         },
         methods: {
-            
+  
         },
         computed:{
           blogSearchResult(){
@@ -82,22 +83,27 @@
               return isMatchingtitleTH | isMatchingtitleEN
             })
             },
-            // categoriesSearchResult(){
-            //     return this.movies.filter(movie =>{
-            //         let categories_seleted = this.categories_seleted
-            //     })
-            // },
-            whatCategories(name){
-                categories.forEach(categorie => {
-                    let isMatching = name.includes(categorie.name)
-                    if(isMatching){
-                        console.log(categorie.id)
-                    }else{
-                        console.log("No")
-                    }
-                });
+            whatCategories(){
+            return this.categories.filter(categorie =>{
+              let categories_seleted = this.categories_seleted.toLowerCase()
+              let isMatching = categorie.name.toLowerCase().includes(categories_seleted)
+              return isMatching
+            })
+            },
+            CategorieResult(){
+                return this.movies.filter(movie =>{
+                    movie['categories'].forEach(id => {
+                        id==categories_id ? console.log(movie.name+"Matching") : console.log(movie.name+"Not Matching");   
+                    });
+                    return movie
+                })
             }
-        }
+        },
+        watch: {
+            whatCategories(){
+                this.categories_id = this.whatCategories[0].id
+            }
+        },
     }
 </script>
 <style scoped>

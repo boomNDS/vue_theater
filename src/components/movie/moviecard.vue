@@ -22,10 +22,10 @@ export default {
     name: 'moviecard',
     data(){
         return{
-
+            categories: []
         }
     },
-    props: ['title', 'types', 'path']
+    props: ['title', 'types', 'path'],
 }
 </script>
 <style scoped>
