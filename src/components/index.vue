@@ -42,7 +42,7 @@
             <!-- <p>{{whatCategories(categories_seleted)}}</p> -->
             <div class="columns is-multiline is-6">
                 <div class="column is-3-desktop is-12-mobile" v-for="movie in showmovies" :key="movie.id">
-                    <moviecard :title="movie.name.th" :types="movie.categories" :path="movie.poster"></moviecard>
+                    <moviecard :id="movie.id" :title="movie.name.th" :types="movie.categories" :path="movie.poster"></moviecard>
                 </div>
             </div>
         </div>
