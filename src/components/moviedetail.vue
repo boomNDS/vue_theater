@@ -1,11 +1,17 @@
 <template>
   <div>
     <p>{{moviesId}}</p>
-    <div class="container is-centered">
+    <div class="container is-centered is-fluid">
       <div class="columns notification">
         <div class="column">
           <div class="videoWrapper">
-            <iframe width="560" height="349" :src="movies[moviesId].video" frameborder="0" allowfullscreen></iframe>
+            <iframe
+              width="560"
+              height="349"
+              :src="movies[moviesId].video"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
         <div class="column">
@@ -21,9 +27,26 @@
             </p>
             <p>
               <strong>หมวดหมู่:</strong>
-              <span v-for="category in movies[moviesId].categories">{{categories[category].name+" "}}</span>
+              <span
+                v-for="category in movies[moviesId].categories"
+              >{{categories[category].name+" "}}</span>
             </p>
           </div>
+        </div>
+      </div>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <font-awesome-icon icon="bookmark" class="bookmark"/>
+          </div>
+          <div class="level-item">
+            <h2 class="title is-2">Recommend</h2>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-multiline is-6">
+        <div class="column is-3-desktop is-12-mobile" v-for="movie in movies" :key="movie.id">
+          <moviecard  :title="movie.name.th" :types="movies.categories" :path="movie.poster"></moviecard>
         </div>
       </div>
     </div>
@@ -32,9 +55,13 @@
 <script>
 import movies from "../assets/data/movies.js";
 import categories from "../assets/data/categories.js";
+import moviecard from "./movie/moviecard.vue";
 
 export default {
   name: "moviedetail",
+  components: {
+    moviecard
+  },
   data: function() {
     return {
       movies: movies,
@@ -49,6 +76,8 @@ export default {
   },
   watch: {
     $route: "updateMovieId"
+  },
+  computed:{
   }
 };
 </script>
