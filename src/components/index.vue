@@ -23,7 +23,6 @@
                         <h2 class="title is-2">Recommend</h2>
                     </div>
                 </div>
-
                 <!-- Right side -->
                 <div class="level-right">
                     <div class="level-item">
@@ -36,7 +35,6 @@
                             </select>
                         </div>
                     </div>                
-
                 </div>
             </nav>
             <!-- <p>{{whatCategories(categories_seleted)}}</p> -->

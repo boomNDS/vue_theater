@@ -1,23 +1,56 @@
 const theaters = [
     { id: 0,
       name:"Iconsiam",
-      room: [
+      rooms: [
         {
-          movieid: 0,
+          roomid: 0,
           name: "Theater 1",
-          time: ["11.00","15.00"]
         },
         {
-            movieid: 3,
+            roomid: 1,
             name: "Theater 2",
-            time: ["10.00","20.00"]
           },
           {
-            movieid: 2,
-            name: "Theater 3",
-            time: ["10.00","12.00"]
+            roomid: 2,
+            name: "Theater 3"
           },
     ]
     },
+    { id: 1,
+        name:"Terminal 21",
+        rooms: [
+          {
+            roomid: 0,
+            name: "Theater 1",
+          },
+          {
+              roomid: 1,
+              name: "Theater 2",
+
+            },
+            {
+              roomid: 2,
+              name: "Theater 3",
+            },
+      ]
+      },
+      { id: 2,
+        name:"Central World",
+        rooms: [
+          {
+            roomid: 0,
+            name: "Theater 1",
+          },
+          {
+              roomid: 1,
+              name: "Theater 2",
+
+            },
+            {
+              roomid: 2,
+              name: "Theater 3",
+            },
+      ]
+      },
   ];
 export default theaters;

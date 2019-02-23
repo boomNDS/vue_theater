@@ -1,8 +1,12 @@
 <template>
   <div>
-      <div class="container is-centered is-fluid">
+      <div class="container is-fluid">
       <moviedetailcard :movies="movies" :moviesId="moviesId" :categories="categories"></moviedetailcard>
-      <theater :theater="theaters"></theater>
+      <theater v-for="location in movies[moviesId].locations" :location="location" :movieID="moviesId" :key="location"></theater>
+        <div class="block">
+            <button  class="button is-success">ตกลง</button>
+            <button  class="button is-danger">ยกเลิก</button>
+        </div>
       </div>
   </div>
 </template>
@@ -37,5 +41,8 @@ export default {
 }
 </script>
 <style scoped>
-
+.block{
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
 </style>
