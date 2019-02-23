@@ -45,7 +45,7 @@ const movies = [
                         locationID:2,
                         rooms:[
                             {
-                                roomID:0,
+                                roomID:2,
                                 times: ["12.00","15.00"]
                             }
                         ]

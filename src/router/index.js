@@ -6,6 +6,10 @@ import index from '@/components/index'
 import moviedetail from '@/components/moviedetail'
 import payment from '@/components/payment'
 import selectingmovie from '@/components/selectingmovie'
+import signin from '@/components/signin'
+import signup from '@/components/signup'
+import moviebooking from '@/components/moviebooking'
+import gettickets from '@/components/gettickets'
 
 
 Vue.use(Router)
@@ -32,6 +36,27 @@ export default new Router({
       path: '/selectingmovie/:id',
       naem: 'selectingmovie',
       component: selectingmovie
+    },
+    {
+      path: '/signin',
+      naem: 'signin',
+      component: signin
+    },
+    {
+      path: '/signup',
+      naem: 'signup',
+      component: signup
+    },
+    {
+      path: '/moviebooking',
+      naem: 'moviebooking',
+      component: moviebooking
+    },
+    {
+      path: '/gettickets',
+      naem: 'gettickets',
+      component: gettickets
     }
+    // gettickets
   ]
 })
