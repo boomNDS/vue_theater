@@ -3,8 +3,8 @@
         <div class="columns notification">
             <div class="column">
                 <!-- <p>{{location}}</p> -->
-                <h1 class="is-size-2 has-text-left">{{theaters[location.locationid].name}}</h1>
-                <room v-for="room in movies[movieID].locations" :key="room" :roomID="room"></room>
+                <h1 class="is-size-2 has-text-left">{{theaters[location.locationID].name}}</h1>
+                <room v-for="room in location.rooms" :key="room" :room="room" :locationID="location.locationID"></room>
             </div>
         </div>
     </div>

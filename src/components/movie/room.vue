@@ -4,17 +4,18 @@
             <div class="columns">
                 <div class="column is-2">
                     <div class="box">
-                        <p>Test</p>
+                        <p>{{theaters[locationID].rooms[room.roomID].name}}</p>
+                        <!-- <p>{{theaters[room.roomID].name}}</p> -->
                         <!-- <p>{{theaters[locationID].rooms[roomID]}}</p> -->
                     </div>
                 </div>
                 <div class="column is-10">
-                        <p>{{roomID}}</p>
-                <!-- <div id="ck-button" v-for="time in room.times" :key="time">
+                        <!-- <p>{{room}}</p> -->
+                <div id="ck-button" v-for="time in room.times" :key="time">
                 <label>
                     <input type="radio" :value="time" v-model="time_sel" name="a"><span>{{time}}</span>
                 </label>
-                </div> -->
+                </div>
                 </div>
             </div>
         </div>
@@ -24,10 +25,11 @@
 import theaters  from '../../assets/data/theaters.js'
 export default {
     name: 'room',
-    props: ['roomID'],
+    props: ['room', 'locationID'],
     data(){
         return{
-            time_sel: ""
+            time_sel: "",
+            theaters: theaters
         }
     }
 }
