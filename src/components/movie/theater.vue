@@ -2,7 +2,8 @@
     <div class="theater">
         <div class="columns notification">
             <div class="column">
-                <p>Hello</p>
+                <p>{{theater[0].name}}</p>
+                <!-- <p>{{theater}}</p> -->
             </div>
         </div>
     </div>
@@ -15,6 +16,7 @@ export default {
 
         }
     },
+    props: ['theater']
 
 }
 </script>

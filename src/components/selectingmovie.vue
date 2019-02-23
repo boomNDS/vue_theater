@@ -2,13 +2,14 @@
   <div>
       <div class="container is-centered is-fluid">
       <moviedetailcard :movies="movies" :moviesId="moviesId" :categories="categories"></moviedetailcard>
-      <theater v-for="i in 3" :key="i"></theater>
+      <theater :theater="theaters"></theater>
       </div>
   </div>
 </template>
 <script>
 import movies from "../assets/data/movies.js";
 import categories from "../assets/data/categories.js";
+    import theaters  from '../assets/data/theaters.js'
     import moviedetailcard from "./movie/moviedetailcard.vue";
     import theater from "./movie/theater.vue";
 export default {
@@ -22,6 +23,7 @@ export default {
       movies: movies,
       moviesId: this.$route.params.id-1,
       categories,
+      theaters
     };
   },
   methods: {

@@ -30,7 +30,7 @@
                         <span class="tag is-dark" v-for="category in movies[moviesId].categories" :key="category">{{categories[category].name+" "}}</span>
                     </p>
                 </div>
-        </div>
+            </div>
         </div>
 <!-- <div class="column">
           <h1 class="title is-3">{{movies[moviesId].name.th+" "}} ({{movies[moviesId].name.en}})</h1>
