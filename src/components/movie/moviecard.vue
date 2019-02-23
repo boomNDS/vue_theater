@@ -8,7 +8,7 @@
         <div class="card-content">
             <div class="content">
                 <h4 class="is-2">ชื่อเริ่อง : {{title}}</h4>
-                <h4 class="is-2">แนวหนัง : <span class="tag is-dark" v-for="type in types" :key="id">{{type}}</span></h4>
+                <h4 class="is-2">แนวหนัง : <span class="tag is-dark" v-for="type in types" :key="type">{{(categories[type].name)}}</span></h4>
                 <div class="is-grouped">
                     <button class="button is-warning">ดูรอบหนัง</button>
                     <button class="button is-info"><router-link :to="'/moviedetail/' + id">รายละเอียด</router-link></button>
@@ -27,12 +27,13 @@ export default {
             categories: categories
         }
     },
+    methods: {
+
+    },
     computed:{
-        whatisCat(){
-            return this.categories.map((name) => {
-                
-            })
-        }
+
+    },
+    watch:{
     },
     props: ['id','title', 'types', 'path'],
 }

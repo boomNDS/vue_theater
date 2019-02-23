@@ -1,10 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Vuex from 'vuex'
+
 import index from '@/components/index'
 import moviedetail from '@/components/moviedetail'
 import payment from '@/components/payment'
+import selectingmovie from '@/components/selectingmovie'
+
 
 Vue.use(Router)
+Vue.use(Vuex)
 
 export default new Router({
   routes: [
@@ -23,5 +28,10 @@ export default new Router({
       name: 'payment',
       component: payment
     },
+    {
+      path: '/selectingmovie/:id',
+      naem: 'selectingmovie',
+      component: selectingmovie
+    }
   ]
 })

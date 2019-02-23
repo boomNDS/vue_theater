@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="">
         <Carouselmovie>a</Carouselmovie>
         <div class="container is-fluid">
             <!-- Main container -->
@@ -112,6 +112,7 @@
             },
             searchText(){
                 this.showmovies = this.blogSearchResult
+                this.categories_seleted = "All"
             }
             
         },

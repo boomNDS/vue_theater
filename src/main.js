@@ -7,10 +7,10 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import VueCarousel from 'vue-carousel'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBookmark,faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark,faSearch, faFilm } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faBookmark,faSearch)
+library.add(faBookmark,faSearch,faFilm)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueCarousel)
