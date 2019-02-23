@@ -19,13 +19,13 @@
                       <h4 class="has-text-right">{{"ราคาที่นั่งรวม "+cost+" THB"}}</h4>
                     </div>
                   </div>
-                  <div style="padding:2%;">
-                   <div class="columns" style="background:#333030;border-radius: 2%">
+                  <div>
+                   <div class="columns" style="border-radius: 2%">
                     <div class="column">
-                      <h4 class="has-text-left" style="color:#edeaea">ราคารวมสุทธิ</h4>
+                      <h4 class="has-text-left">ราคารวมสุทธิ</h4>
                     </div>
                     <div class="column">
-                      <h4 class="has-text-right" style="color:#edeaea">{{cost+" THB"}}</h4>
+                      <h4 class="has-text-right">{{cost+" THB"}}</h4>
                     </div>
                    </div>
                   </div>
