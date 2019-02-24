@@ -80,13 +80,17 @@
             <hr>
             <div style="padding:2% 18%">
               <h1 class="title is-4">สำหรับซื้อตั๋ว</h1>
-              <p class="has-text-left">เมื่อท่านได้รับรหัส กรุณานำรหัสจองและหมายเลขโทรศัพท์มารับบัตรที่ตู้จำหน่ายบัตรชมภาพยนตร์อัตโนมัติหรือเคาน์เตอร์วีไอพี</p>
+              <p
+                class="has-text-left"
+              >เมื่อท่านได้รับรหัส กรุณานำรหัสจองและหมายเลขโทรศัพท์มารับบัตรที่ตู้จำหน่ายบัตรชมภาพยนตร์อัตโนมัติหรือเคาน์เตอร์วีไอพี</p>
               <fieldset>
                 <legend class="title is-5">เลือกช่องทางการชำระเงิน</legend>
                 <div class="columns">
                   <div class="column is-centered" v-for="payment in paymenttype" :key="payment.id">
                     <div class="image is-3by2">
-                      <a href=""><img :src="payment.src" alt=""></a>
+                      <a href>
+                        <img :src="payment.src" alt>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -108,15 +112,24 @@ export default {
       movies: movies,
       date: "27 กุมภาพันธ์ 2562",
       time: "11.00",
-      theater: "Passion Theater cinema KMITL",
-      paymenttype:[{
-        id:1,
-        src:"https://www.newsuptown.com/wp-content/uploads/2018/11/Visa-and-Mastercard-provide-tourist-card-fee-cut-in-EU-antitrust-probe.png",   
-      },
-      {
-        id:2,
-        src:"http://www.9tana.com/wp-content/uploads/2018/09/rabbit-line-pay.jpg"
-      }]
+      theater: "Passion Theater cinema Iconsiam",
+      paymenttype: [
+        {
+          id: 1,
+          src:
+            "https://simplyadoorabledotcom.files.wordpress.com/2015/12/cash-payment-icon.png"
+        },
+        {
+          id: 2,
+          src:
+            "https://www.ceoblog.co/wp-content/uploads/2017/10/PromptPay.jpg"
+        },
+        {
+          id: 3,
+          src:
+            "https://www.newsuptown.com/wp-content/uploads/2018/11/Visa-and-Mastercard-provide-tourist-card-fee-cut-in-EU-antitrust-probe.png"
+        }
+      ]
     };
   },
   methods: {}
