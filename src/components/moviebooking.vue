@@ -21,7 +21,7 @@
                 <h3 class="is-size-3">Tickets</h3>
                 <div class="columns">
                     <div class="column is-6">
-                        <p>Adult</p>
+                        <p>Normal - Adult</p>
                     </div>
                     <div class="column is-6">
                         <button class="num_btn" @click="count <= 0 ? count = 0: count--">-</button>
@@ -34,7 +34,7 @@
                 <h3 class="is-size-3">Summary</h3>
                 <div class="columns">
                     <div class="column is-6">
-                        <p>Adult</p>
+                        <p>Normal - Adult</p>
                     </div>
                     <div class="column is-6">
                         <p>{{"X "+count}}</p>

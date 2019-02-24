@@ -17,7 +17,7 @@
             </div>
             <div class="field">
               <p class="control has-text-centered">
-                <button class="button is-success">Sign in</button>
+                <button class="button is-success"><router-link to="/" class="btn">เข้าสู่ระบบ</router-link></button>
               </p>
             </div>
           </form>

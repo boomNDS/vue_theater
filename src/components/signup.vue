@@ -27,7 +27,9 @@
             </div>
             <div class="field">
               <p class="control has-text-centered">
-                <button class="button is-success">Sign up</button>
+                <button class="button is-success"><router-link to="/signin">ยืนยัน</router-link></button>
+                <button class="button is-danger"><router-link to="/">ยกเลิก</router-link></button>
+                    <!-- <router-link  class="navbar-item" to="/">About</router-link> -->
               </p>
             </div>
           </form>

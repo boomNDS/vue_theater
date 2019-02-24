@@ -10,7 +10,7 @@
         </div>
       </div>
       <div>
-        <theater v-for="location in movies[moviesId].days[date_select].locations" :location="location" :movieID="moviesId" :key="location" @time="timeset"></theater>          
+        <theater v-for="location in movies[moviesId].days[date_select].locations" :location="location" :movieID="moviesId" :key="location" @timeall="timeset"></theater>          
       </div>
         <div class="block">
           <p>{{test}}</p>
@@ -26,7 +26,6 @@
     import theaters  from '../assets/data/theaters.js'
     import moviedetailcard from "./movie/moviedetailcard.vue";
     import theater from "./movie/theater.vue";
-    import { mapState} from "vuex";
 export default {
     name: 'selectingmovie',
     components: {
@@ -40,19 +39,27 @@ export default {
       categories,
       theaters,
       date_select: 0,
-      time_sel: '',
+      time_sel: ""
     };
+  },
+  mounted() {
+      localStorage.setItem('moviesId', this.moviesId)
+      localStorage.setItem('date_select', this.date_select)
   },
   methods: {
     updateMovieId() {
       this.moviesId = this.$route.params.id-1;
+      localStorage.setItem('moviesId', this.moviesId)
     },
     timeset(event){
       this.time_sel = event
     },
   },
   watch: {
-    $route: "updateMovieId"
+    $route: "updateMovieId",
+    date_select(){
+      localStorage.setItem('date_select', this.date_select)
+    },
   },
 
 }

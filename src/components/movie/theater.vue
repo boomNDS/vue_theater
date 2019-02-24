@@ -22,21 +22,34 @@ export default {
         return{
             movies: movies,
             theaters: theaters,
-            time_sel: ''
+            time_sel: '',
+            roomname: '',
         }
+    },
+    mounted() {
+        localStorage.setItem('time_sel', this.time_sel)
+        localStorage.setItem('roomname', this.roomname)
+        localStorage.setItem('locationID', this.location.locationID)
     },
     methods:{
         timeset(event){
-            this.time_sel = event
+            this.time_sel = event.time_sel
+            this.roomname = event.roomname
         },
         timesent(){
-            this.$emit('time', this.time_sel)
+            this.$emit('timeall', this.time_sel)
         }
     },
     props: ['location', 'movieID'],
     watch:{
         time_sel(){
-            store.state.time_sel = time_sel
+           localStorage.setItem('time_sel', this.time_sel)
+            localStorage.setItem('locationID', this.location.locationID)
+        },
+        roomname(){
+           localStorage.setItem('roomname', this.roomname)
+        localStorage.setItem('locationID', this.location.locationID)
+
         }
     }
 

@@ -34,7 +34,8 @@ export default {
     },
     methods:{
           emitEvent(){
-            this.$emit('time', this.time_sel)
+            // this.$emit('time', this.time_sel)
+            this.$emit('time', {'time_sel':this.time_sel,'roomname': this.theaters[this.locationID].rooms[this.room.roomID].name})
           }
     }
 }
