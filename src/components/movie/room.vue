@@ -13,7 +13,7 @@
                         <!-- <p>{{room}}</p> -->
                 <div id="ck-button" v-for="time in room.times" :key="time">
                 <label>
-                    <input type="radio" :value="time" v-model="time_sel" name="a"><span>{{time}}</span>
+                    <input type="radio" :value="time" v-model="time_sel" name="a" @change="emitEvent"><span>{{time}}</span>
                 </label>
                 </div>
                 </div>
@@ -31,6 +31,11 @@ export default {
             time_sel: "",
             theaters: theaters
         }
+    },
+    methods:{
+          emitEvent(){
+            this.$emit('time', this.time_sel)
+          }
     }
 }
 </script>

@@ -10,8 +10,8 @@
                 <h4 class="is-2">ชื่อเริ่อง : {{title}}</h4>
                 <h4 class="is-2">แนวหนัง : <span class="tag is-dark" v-for="type in types" :key="type">{{(categories[type].name)}}</span></h4>
                 <div class="is-grouped">
-                    <button class="button is-warning">ดูรอบหนัง</button>
-                    <button class="button is-info"><router-link :to="'/moviedetail/' + id">รายละเอียด</router-link></button>
+                    <button class="button is-warning"><router-link :to="'/selectingmovie/' + id" class="btn">ดูรอบหนัง</router-link></button>
+                    <button class="button is-info"><router-link :to="'/moviedetail/' + id" class="btn">รายละเอียด</router-link></button>
                     <!-- <router-link  class="navbar-item" to="/">About</router-link> -->
                 </div>
             </div>
@@ -50,5 +50,8 @@ export default {
 }
 .tag{
     margin: 1%;
+}
+.btn{
+    color:#fff;
 }
 </style>

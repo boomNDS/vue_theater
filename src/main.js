@@ -9,7 +9,7 @@ import VueCarousel from 'vue-carousel'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBookmark,faSearch, faFilm } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
- 
+import store from './store'
 
 library.add(faBookmark,faSearch,faFilm)
 
@@ -22,6 +22,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App, },
   template: '<App/>'
 })
