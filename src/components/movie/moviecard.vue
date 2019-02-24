@@ -9,7 +9,7 @@
             <div class="content">
                 <h4 class="is-2">ชื่อเริ่อง : {{title}}</h4>
                 <h4 class="is-2">แนวหนัง : <span class="tag is-dark" v-for="type in types" :key="type">{{(categories[type].name)}}</span></h4>
-                <div class="is-grouped">
+                <div class="is-grouped" v-if="showbtn">
                     <button class="button is-warning"><router-link :to="'/selectingmovie/' + id" class="btn">ดูรอบหนัง</router-link></button>
                     <button class="button is-info"><router-link :to="'/moviedetail/' + id" class="btn">รายละเอียด</router-link></button>
                     <!-- <router-link  class="navbar-item" to="/">About</router-link> -->
@@ -35,7 +35,7 @@ export default {
     },
     watch:{
     },
-    props: ['id','title', 'types', 'path'],
+    props: ['id','title', 'types', 'path', 'showbtn'],
 }
 </script>
 <style scoped>
@@ -53,5 +53,8 @@ export default {
 }
 .btn{
     color:#fff;
+}
+.button{
+    margin-bottom: 5px;
 }
 </style>

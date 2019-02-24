@@ -14,8 +14,8 @@
       </div>
         <div class="block">
           <p>{{test}}</p>
-            <button  class="button is-success">ตกลง</button>
-            <button  class="button is-danger">ยกเลิก</button>
+            <button  class="button is-success"><router-link :to="'/moviebooking'" class="btn">ยืนยัน</router-link></button>
+            <button  class="button is-danger"><router-link :to="'/'" class="btn">ยกเลิก</router-link></button>
         </div>
       </div>
   </div>
@@ -96,5 +96,8 @@ export default {
 }
 input {
     visibility:hidden;
+}
+.btn{
+  color:#fff;
 }
 </style>

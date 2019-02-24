@@ -13,13 +13,13 @@ let store = new Vuex.Store({
             }
         ],
         login: false,
-        time_sel: "",
+        time_sel: "11.00",
         locationID: 0,
-        theater: "a",
-        day: "",
+        theater: 0,
+        day: "25 ก.พ 62",
         movieID: 0,
-        total: 0,
-        seats: []
+        total: 120,
+        seats: ["A2","A3"]
     },
     getters:{
         time_sel: (state) => {
