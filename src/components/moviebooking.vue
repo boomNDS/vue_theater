@@ -7,8 +7,8 @@
             <moviecard  :id="movieID" :title="movies[movieID].name.th" :types="movies[movieID].categories" :path="movies[movieID].poster" :showbtn="false"></moviecard>
             </div>
             <div class="column  is-9-desktop is-12-moblie">
-                <h3 class="is-size-2">{{theaters[locationID].name+" "+theaters[locationID].rooms[theater].name}}</h3>
-                <h1 class="is-size-4">{{" วันที่ "+day+" "+time_sel}}</h1>
+                <h3 class="is-size-2">{{theaters[locationID].name+" "+roomname}}</h3>
+                <h1 class="is-size-4">{{" วันที่ "+date_select+" "+time_sel}}</h1>
                 <div class="selecting_seats columns is-centered">
                     <div v-for="i in 12" :key="i">
                         <div class="column is-1" v-for="seat in seats" :key="seat">
@@ -53,7 +53,6 @@
     </div>
 </template>
 <script>
-import {mapState, mapActions} from 'vuex'
 import movies from "../assets/data/movies.js";
 import theaters from "../assets/data/theaters.js";
 import categories from "../assets/data/categories.js";
@@ -73,20 +72,14 @@ export default {
           seats: seats,
           count: 0,
           maxcount: 10,
+          movieID: localStorage.getItem('moviesId'),
+          locationID: localStorage.getItem('locationID'),
+          roomname: localStorage.getItem('roomname'),
+          date_select: localStorage.getItem('date_select'),
+          time_sel: localStorage.getItem('time_sel'),
       }
   },
     computed: {
-        ...mapState([
-        'users',
-        'time_sel',
-        'movieID',
-        'locationID',
-        'theater',
-        'day'
-        ]),
-        ...mapActions([
-        'setTime_sel'
-        ])
     }
 }
 </script>

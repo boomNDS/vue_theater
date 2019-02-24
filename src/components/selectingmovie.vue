@@ -5,7 +5,7 @@
       <div class="box">
         <div id="ck-button" v-for="day in movies[moviesId].days" :key="day">
             <label>
-                <input type="radio" :value="day.dayID" v-model="date_select" name="day"><span>{{day.date}}</span>
+                <input type="radio" :value="day.date" v-model="date_select" name="day"><span>{{day.date}}</span>
             </label>
         </div>
       </div>
