@@ -8,7 +8,7 @@
             </div>
             <div class="column  is-9-desktop is-12-moblie">
                 <h3 class="is-size-2">{{theaters[locationID].name+" "+roomname}}</h3>
-                <h1 class="is-size-4">{{" วันที่ "+date_select+" "+time_sel}}</h1>
+                <h1 class="is-size-4">{{" วันที่ "+movies[movieID].days[date_select].date+" เวลา"+time_sel}}</h1>
                 <div class="selecting_seats columns is-centered">
                     <div v-for="i in 12" :key="i">
                         <div class="column is-1" v-for="seat in seats" :key="seat">
@@ -78,6 +78,9 @@ export default {
           date_select: localStorage.getItem('date_select'),
           time_sel: localStorage.getItem('time_sel'),
       }
+  },
+    mounted() {
+      localStorage.setItem("seats_sel", JSON.stringify(["AC","BC"]));
   },
     computed: {
     }

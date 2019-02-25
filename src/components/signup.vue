@@ -6,24 +6,19 @@
           <form action>
             <h1 class="title is-3">สมัครสมาชิก</h1>
             <div class="field">
+              <div class="control">
+                <input class="input" type="text" placeholder="username" required>
+              </div>
+            <div class="field">
               <p class="control">
-                <input class="input" type="email" placeholder="อีเมล" required>
+                <input class="input" type="email" placeholder="Email" required>
               </p>
             </div>
             <div class="field">
               <p class="control">
-                <input class="input" type="password" placeholder="รหัสผ่าน" required>
+                <input class="input" type="password" placeholder="Password" required>
               </p>
             </div>
-            <div class="field">
-              <div class="control">
-                <input class="input" type="text" placeholder="ชื่อ" required>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <input class="input" type="text" placeholder="นามสกุล" required>
-              </div>
             </div>
             <div class="field">
               <p class="control has-text-centered">

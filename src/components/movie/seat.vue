@@ -9,10 +9,24 @@ export default {
     props: ['name'],
     data(){
         return{
-            isActive: false
+            isActive: false,
+            list: [],
         }
     },
-    methods:{
+    mounted() {
+      this.list = JSON.parse(localStorage.getItem('seats_sel'))
+    },
+    watch:{
+        isActive(){
+            if(this.isActive == true){
+                this.list.push(this.name)
+                localStorage.setItem('seats_sel', JSON.stringify(this.list))
+            }else{
+                let index = this.list.indexOf(this.name);
+                this.list.splice(index, 1)
+                localStorage.setItem('seats_sel', JSON.stringify(this.list))
+            }
+        }
     }
 }
 </script>
@@ -26,7 +40,6 @@ export default {
     text-align: center;
     padding: 3px;
     transition: 0.25s all;
-    margin: 
 }
 .active{
     background: #FA7268;

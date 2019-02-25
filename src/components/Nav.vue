@@ -24,13 +24,20 @@
             -->
             <div class="navbar-menu" :class="{ 'is-active': showNav }">
                 <div class="navbar-end">
+                    <p class="navbar-item">{{loginState}}</p>
                   <router-link  class="navbar-item" to="/payment">payment</router-link>
                   <router-link  class="navbar-item" to="/moviedetail/1">moviedetail</router-link>
                   <router-link  class="navbar-item" to="/selectingmovie/1">selectingmovie</router-link>
                   <router-link  class="navbar-item" to="/moviebooking">moviebooking</router-link>
                   <router-link  class="navbar-item" to="/gettickets">gettickets</router-link>
-                  <router-link  class="navbar-item" to="/signin"><button class="button  is-success  is-outlined">Sign In</button></router-link>
-                  <router-link  class="navbar-item" to="/signup"><button class="button  is-info is-outlined">Sign Up</button></router-link>
+                  <span v-if="!loginState" class="navbar-item">
+                  <router-link  to="/signin"><button class="button  is-success  is-outlined">Sign In</button></router-link>
+                  <router-link  to="/signup"><button class="button  is-info is-outlined">Sign Up</button></router-link>
+                  </span>
+                  <span v-else class="navbar-item">
+                    <p>{{"คุณ "+username}}</p>
+                    <button class="button  is-danger  is-outlined" @click="logout()">Sign out</button>
+                  </span>
                 </div>
             </div>
             </nav>
@@ -43,8 +50,35 @@ export default {
   name: 'Nav',
   data () {
     return {
-        showNav: false
+        showNav: false,
+        loginState: JSON.parse(localStorage.getItem("loginState")),
+        username: localStorage.getItem('username')
     }
+  },
+    mounted() {
+      localStorage.setItem("username", "boomNDS");
+      localStorage.setItem("password", "pass");
+      localStorage.setItem("email", "boom@it.com");
+      localStorage.setItem("loginState", false);
+  },
+  computed:{
+    //   loginState(){
+    //       return JSON.parse(localStorage.getItem("loginState"))
+    //   }
+  },
+  watch:{
+      $route(){
+        //   alert("a")
+          this.loginState = JSON.parse(localStorage.getItem("loginState"))
+      }
+  },
+  methods:{
+      logout(){
+        // alert("logout")
+        localStorage.setItem("loginState", false)
+        this.loginState = JSON.parse(localStorage.getItem("loginState"))
+        this.$router.push('/')
+      }
   }
 }
 </script>
@@ -64,5 +98,11 @@ p{
 }
 .all{
     margin-bottom: 3.6em;
+}
+.button{
+    margin-right: 5px;
+}
+p{
+    margin-right: 10px;
 }
 </style>

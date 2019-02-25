@@ -13,7 +13,7 @@
                         <!-- <p>{{room}}</p> -->
                 <div id="ck-button" v-for="time in room.times" :key="time">
                 <label>
-                    <input type="radio" :value="time" v-model="time_sel" name="a" @change="emitEvent"><span>{{time}}</span>
+                    <input type="radio" :value="time" v-model="time_sel" name="a" @change="emitEvent" ><span>{{time}}</span>
                 </label>
                 </div>
                 </div>
