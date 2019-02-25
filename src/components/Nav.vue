@@ -24,7 +24,7 @@
             -->
             <div class="navbar-menu" :class="{ 'is-active': showNav }">
                 <div class="navbar-end">
-                    <p class="navbar-item">{{loginState}}</p>
+                    <!-- <p class="navbar-item">{{loginState}}</p> -->
                   <router-link  class="navbar-item" to="/payment">payment</router-link>
                   <router-link  class="navbar-item" to="/moviedetail/1">moviedetail</router-link>
                   <router-link  class="navbar-item" to="/selectingmovie/1">selectingmovie</router-link>
@@ -70,6 +70,7 @@ export default {
       $route(){
         //   alert("a")
           this.loginState = JSON.parse(localStorage.getItem("loginState"))
+          this.username = localStorage.getItem('username')
       }
   },
   methods:{
