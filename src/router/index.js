@@ -14,8 +14,8 @@ import gettickets from '@/components/gettickets'
 
 Vue.use(Router)
 Vue.use(Vuex)
-
-export default new Router({
+const router = new Router({
+  // export default new Router({
   routes: [
     {
       path: '/',
@@ -30,7 +30,9 @@ export default new Router({
     {
       path: '/payment',
       name: 'payment',
-      component: payment
+      component: payment,
+      meta: { requiresAuth: true }
+
     },
     {
       path: '/selectingmovie/:id',
@@ -50,13 +52,27 @@ export default new Router({
     {
       path: '/moviebooking',
       naem: 'moviebooking',
-      component: moviebooking
+      component: moviebooking,
+      meta: { requiresAuth: true }
     },
     {
       path: '/gettickets',
       naem: 'gettickets',
-      component: gettickets
+      component: gettickets,
+      meta: { requiresAuth: true }
     }
     // gettickets
   ]
 })
+router.beforeEach((to, from, next) => {
+  if(to.meta.requiresAuth){
+    if(JSON.parse(localStorage.getItem("loginState"))){
+      next()
+    }else{
+      next({name: 'index'})
+    }
+  }else{
+    next()
+  }
+})
+ export default router
