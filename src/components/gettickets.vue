@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container is-centered is-fluid">
       <h1 class="upcomming">Tickets</h1>
       <div id="printableArea" class="item box">
         <div class="item-right">
@@ -31,13 +31,15 @@
               <br>Party Number 16,20
             </p>
           </div>
-          <div class="fix"></div>
-          <button
+          <div class="fix">
+                <button
             @click="printDiv('printableArea')"
             class="tickets"
             style="background:#3ed643"
             value="print a div!"
           >print</button>
+          </div>
+          <button class="tickets" style="background:red;" value="print a div!">Email</button>
         </div>
         <!-- end item-right -->
       </div>
