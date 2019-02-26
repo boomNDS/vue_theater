@@ -51,34 +51,6 @@
             </div>
             <hr>
             <div style="padding:2% 18%">
-              <h1 class="title is-4">ยืนยันการทำรายการ</h1>
-              <p class="has-text-left">กรุณากรอกข้อมูลเพื่อใช้ในการรับตั๋ว</p>
-              <div class="columns is-centered notification">
-                <div class="column">
-                  <div class="field">
-                    <p class="control has-icons-left has-icons-right">
-                      <input class="input" type="email" placeholder="Email">
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                      </span>
-                      <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                      </span>
-                    </p>
-                  </div>
-                  <div class="field">
-                    <p class="control has-icons-left">
-                      <input class="input" type="tel" placeholder="Mobile No.">
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div style="padding:2% 18%">
               <h1 class="title is-4">สำหรับซื้อตั๋ว</h1>
               <p
                 class="has-text-left"

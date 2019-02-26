@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container is-centered is-fluid">
       <h1 class="upcomming">Tickets</h1>
       <div id="printableArea" class="item box">
         <div class="item-right">
