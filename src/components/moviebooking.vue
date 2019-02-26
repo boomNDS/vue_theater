@@ -20,6 +20,9 @@
             <div class="column is-6-desktop is-12-moblie box">
                 <h3 class="is-size-3">Tickets</h3>
                 <div class="columns is-multiline">
+                    <div class="column is-12">
+                            <b>No.</b> <span v-for="seat in seats_list" :key="seat">{{seat+" "}}</span>                        
+                    </div>
                     <div class="column is-6">
                         <p>Child</p>
                     </div>
@@ -112,13 +115,14 @@ export default {
           roomname: localStorage.getItem('roomname'),
           date_select: localStorage.getItem('date_select'),
           time_sel: localStorage.getItem('time_sel'),
+          seats_list: JSON.parse(localStorage.getItem('seats_sel'))
       }
   },
     mounted() {
       localStorage.setItem("seats_sel", JSON.stringify(["AC","BC","CC","DC"]))
   },
-    computed: {
-        total(){
+  computed: { 
+    total(){
             let num = (this.childcount*80)+(this.adultcount*120)+(this.oldercount*80)
             localStorage.setItem("total", num)
             return num

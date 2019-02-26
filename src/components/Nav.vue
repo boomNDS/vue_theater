@@ -25,11 +25,11 @@
             <div class="navbar-menu" :class="{ 'is-active': showNav }">
                 <div class="navbar-end">
                     <!-- <p class="navbar-item">{{loginState}}</p> -->
-                  <router-link  class="navbar-item" to="/payment">payment</router-link>
-                  <router-link  class="navbar-item" to="/moviedetail/1">moviedetail</router-link>
-                  <router-link  class="navbar-item" to="/selectingmovie/1">selectingmovie</router-link>
+                  <!-- <router-link  class="navbar-item" to="/payment">payment</router-link> -->
+                  <!-- <router-link  class="navbar-item" to="/moviedetail/1">moviedetail</router-link> -->
+                  <!-- <router-link  class="navbar-item" to="/selectingmovie/1">selectingmovie</router-link>
                   <router-link  class="navbar-item" to="/moviebooking">moviebooking</router-link>
-                  <router-link  class="navbar-item" to="/gettickets">gettickets</router-link>
+                  <router-link  class="navbar-item" to="/gettickets">gettickets</router-link> -->
                   <span v-if="!loginState" class="navbar-item">
                   <router-link  to="/signin"><button class="button  is-success  is-outlined">Sign In</button></router-link>
                   <router-link  to="/signup"><button class="button  is-info is-outlined">Sign Up</button></router-link>
