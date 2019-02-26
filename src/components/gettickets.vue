@@ -35,6 +35,7 @@
 </template>
 <script>
 import movies from "../assets/data/movies.js";
+import theaters from "../assets/data/theaters.js";
 
 export default {
   name: "gettickets",
@@ -43,6 +44,29 @@ export default {
       movies,
       img: "https://www.iom.int/sites/default/files/gmff/logo_simple.png"
     };
+  },
+  computed:{
+    cost(){
+      return localStorage.getItem('total')
+    },
+    date_select(){
+      return localStorage.getItem('date_select')
+    },
+    movieID(){
+      return localStorage.getItem('moviesId')
+    },
+    time_sel(){
+      return localStorage.getItem('time_sel')
+    },
+    seats_list(){
+      return JSON.parse(localStorage.getItem('seats_sel'))
+    },
+    locationID(){
+      return localStorage.getItem('locationID')
+    },
+    roomname(){
+      return localStorage.getItem('roomname')
+    }
   },
   methods: {
     printDiv(divName) {

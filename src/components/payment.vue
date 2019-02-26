@@ -8,29 +8,29 @@
             <div class="columns">
               <div class="column is-4">
                 <div class="image is-square">
-                  <img v-bind:src="movies[0].poster" alt>
+                  <img class="movieimg" :src="movies[movieID].poster">
                 </div>
               </div>
               <div class="column">
                 <div class="block" style="padding:0 10%;">
                   <article class="message is-warning">
                     <div class="message-header">
-                      <h3>{{movies[0].name.th+" ("+movies[0].name.en+")"}}</h3>
+                      <h3>{{movies[movieID].name.th+" ("+movies[movieID].name.en+")"}}</h3>
                     </div>
                     <div class="message-body">
                       <div class="columns">
                         <div class="column">
                           <p class="has-text-left">
-                            <i>{{date}}</i>
+                            <i>{{movies[movieID].days[date_select].date}}</i>
                             <br>
                             <b>เวลา</b>
-                            {{time}}
-                            <br>
+                            {{time_sel}}
+                            <!-- <br>
                             <b>ประเภทที่นั่ง</b> Premium Chair 4DX
+                            <br> -->
+                            <b>No.</b> <span v-for="seat in seats_list" :key="seat">{{seat+" "}}</span>
                             <br>
-                            <b>No.</b> S17, S16
-                            <br>
-                            <i>{{theater}}</i>
+                            <i>{{theater+" "+theaters[locationID].name}}</i>
                           </p>
                         </div>
                       </div>
@@ -59,14 +59,17 @@
                 <legend class="title is-5">เลือกช่องทางการชำระเงิน</legend>
                 <div class="columns">
                   <div class="column is-centered" v-for="payment in paymenttype" :key="payment.id">
-                    <div class="image is-3by2">
-                      <a href>
-                        <img :src="payment.src" alt>
-                      </a>
+                    <div class="image is-3by2" @click="payment_set">
+                        <img :src="payment.src">
                     </div>
                   </div>
                 </div>
               </fieldset>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <button  class="button is-danger"><router-link :to="'/'" class="btn">ยกเลิก</router-link></button>
+                </div>
             </div>
           </div>
         </div>
@@ -76,15 +79,14 @@
 </template>
 <script>
 import movies from "../assets/data/movies.js";
+import theaters from "../assets/data/theaters.js";
 export default {
   name: "payment",
   data: function() {
     return {
-      cost: 120,
       movies: movies,
-      date: "27 กุมภาพันธ์ 2562",
-      time: "11.00",
-      theater: "Passion Theater cinema Iconsiam",
+      theaters: theaters,
+      theater: "Passion Theater Cinema",
       paymenttype: [
         {
           id: 1,
@@ -104,7 +106,31 @@ export default {
       ]
     };
   },
-  methods: {}
+  computed:{
+    cost(){
+      return localStorage.getItem('total')
+    },
+    date_select(){
+      return localStorage.getItem('date_select')
+    },
+    movieID(){
+      return localStorage.getItem('moviesId')
+    },
+    time_sel(){
+      return localStorage.getItem('time_sel')
+    },
+    seats_list(){
+      return JSON.parse(localStorage.getItem('seats_sel'))
+    },
+    locationID(){
+      return localStorage.getItem('locationID')
+    }
+  },
+  methods: {
+    payment_set: function (event) {
+      this.$router.push('/gettickets')
+    }
+  }
 };
 </script>
 
@@ -119,6 +145,11 @@ export default {
 }
 .notification {
   border-radius: 1.5%;
+}
+.movieimg{
+  width: 300px;
+  height: auto;
+  border-radius: 15px;
 }
 </style>
 
