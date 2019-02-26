@@ -53,7 +53,7 @@ const router = new Router({
       path: '/moviebooking',
       naem: 'moviebooking',
       component: moviebooking,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: false }
     },
     {
       path: '/gettickets',

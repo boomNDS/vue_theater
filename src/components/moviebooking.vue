@@ -19,26 +19,60 @@
             </div>
             <div class="column is-6-desktop is-12-moblie box">
                 <h3 class="is-size-3">Tickets</h3>
-                <div class="columns">
+                <div class="columns is-multiline">
                     <div class="column is-6">
-                        <p>Normal - Adult</p>
+                        <p>Child</p>
                     </div>
                     <div class="column is-6">
-                        <button class="num_btn" @click="count <= 0 ? count = 0: count--">-</button>
-                        <input type="number" max="10" min="0" v-model="count">
-                        <button class="num_btn" @click="count >= maxcount ? count = maxcount: count++">+</button>
+                        <button class="num_btn" @click="childcount <= 0 ? childcount = 0: childcount--;adultcount++">-</button>
+                        <input type="number" :max="maxcount" min="0" v-model="childcount">
+                        <button class="num_btn" @click="childcount++;oldercount--">+</button>
+                    </div>
+                    <div class="column is-6">
+                        <p>Adult</p>
+                    </div>
+                    <div class="column is-6">
+                        <!-- <button class="num_btn" @click="adultcount <= 0 ? adultcount = 0: adultcount--">-</button> -->
+                        <button class="num_btn" @click="adultcount <= 0 ? adultcount = 0: adultcount--;childcount++">-</button>
+                        <input type="number" :max="maxcount" min="0" v-model="adultcount">
+                        <button class="num_btn" @click="childcount <= 0? oldercount--: childcount--;adultcount++">+</button>
+                    </div>
+                    <div class="column is-6">
+                        <p>Older Person</p>
+                    </div>
+                    <div class="column is-6">
+                        <button class="num_btn" @click="oldercount <= 0? oldercount = 0: oldercount--;adultcount++;">-</button>
+                        <input type="number" :max="maxcount" min="0" v-model="oldercount">
+                        <button class="num_btn" @click="oldercount++">+</button>
                     </div>
                 </div>
             </div>
             <div class="column is-6-desktop is-12-moblie box">
                 <h3 class="is-size-3">Summary</h3>
-                <div class="columns">
+                <div class="columns is-multiline">
                     <div class="column is-6">
-                        <p>Normal - Adult</p>
+                        <p>Child</p>
                     </div>
                     <div class="column is-6">
-                        <p>{{"X "+count}}</p>
-                        <p>{{"Total: "+(count*120)}}</p>
+                        <p>{{"80 X "+childcount}}</p>
+                    </div>
+                    <div class="column is-6">
+                        <p>Adult</p>
+                    </div>
+                    <div class="column is-6">
+                        <p>{{"120 X "+adultcount}}</p>
+                    </div>
+                    <div class="column is-6">
+                        <p>Older Person</p>
+                    </div>
+                    <div class="column is-6">
+                        <p>{{"80 X "+oldercount}}</p>
+                    </div>
+                    <div class="column is-6">
+                        <p>Total</p>
+                    </div>
+                    <div class="column is-6">
+                        <p>{{total}}</p>
                     </div>
                 </div>
             </div>
@@ -70,8 +104,9 @@ export default {
           movies: movies,
           theaters: theaters,
           seats: seats,
-          count: 0,
-          maxcount: 10,
+          childcount: 0,
+          oldercount: 0,
+          maxcount: JSON.parse(localStorage.getItem('seats_sel')).length,
           movieID: localStorage.getItem('moviesId'),
           locationID: localStorage.getItem('locationID'),
           roomname: localStorage.getItem('roomname'),
@@ -80,10 +115,23 @@ export default {
       }
   },
     mounted() {
-      localStorage.setItem("seats_sel", JSON.stringify(["AC","BC"]));
+      localStorage.setItem("seats_sel", JSON.stringify(["AC","BC","CC","DC"]))
   },
     computed: {
-    }
+        total(){
+            let num = (this.childcount*80)+(this.adultcount*120)+(this.oldercount*80)
+            localStorage.setItem("total", num)
+            return num
+        },
+        adultcount(){
+            return this.maxcount-this.childcount-this.oldercount
+        }
+    },
+    watch: {
+        total(){
+            localStorage.setItem("total", this.total)
+        }
+    },
 }
 </script>
 <style scoped>

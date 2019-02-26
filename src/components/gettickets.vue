@@ -4,56 +4,83 @@
       <h1 class="upcomming">Tickets</h1>
       <div id="printableArea" class="item box">
         <div class="item-right">
-          <h2 class="num">27</h2>
-          <p class="day">Feb</p>
+          <h2 class="day">{{movies[movieID].days[date_select].date}}</h2>
           <span class="up-border"></span>
           <span class="down-border"></span>
         </div>
         <!-- end item-right -->
         <div class="item-left">
-          <p class="event">{{movies[0].name.th+" ("+movies[0].name.en+")"}}</p>
+          <p class="event">{{movies[movieID].name.th+" ("+movies[movieID].name.en+")"}}</p>
           <h2 class="title">Passion Theater</h2>
 
           <div class="sce">
             <div class="icon">
               <i class="fa fa-table"></i>
             </div>
-            <p>Monday 27th 2019
-              <br>15:20Pm & 11:00Am
-            </p>
+            <p><b>{{movies[movieID].days[date_select].date+"  เวลา "+time_sel}}</b></p>
           </div>
           <div class="fix"></div>
           <div class="loc">
             <div class="icon">
               <i class="fa fa-map-marker"></i>
             </div>
-            <p>No.D5 Theater 2
-              <br>Party Number 16,20
-            </p>
+            <p>{{theaters[locationID].name+" "+roomname}}</p>
+            <br>
           </div>
-          <div class="fix"></div>
-          <button
-            @click="printDiv('printableArea')"
-            class="tickets"
-            style="background:#3ed643"
-            value="print a div!"
-          >print</button>
+          <div class="fix">
+            <p>Seats :</p>
+            <b>No.</b> <span v-for="seat in seats_list" :key="seat">{{seat+" "}}</span>
+          </div>
+          <button @click="printDiv('printableArea')"  class="button is-success tickets" value="print a div!">Print</button>
         </div>
         <!-- end item-right -->
       </div>
       <!-- end item -->
-    </div>
+    </div> 
+            <div class="columns">
+                <div class="column is-12">
+                    <button  class="button is-success"><router-link :to="'/'" class="btn">ยืนยัน</router-link></button>
+                    <button  class="button is-danger"><router-link :to="'/'" class="btn">ยกเลิก</router-link></button>
+                </div>
+            </div>
   </div>
 </template>
 <script>
 import movies from "../assets/data/movies.js";
+import theaters from "../assets/data/theaters.js";
 
 export default {
   name: "gettickets",
   data: function() {
     return {
-      movies
+      movies: movies,
+      theaters: theaters,
+      theater: "Passion Theater Cinema",
+
     };
+  },
+  computed:{
+    cost(){
+      return localStorage.getItem('total')
+    },
+    date_select(){
+      return localStorage.getItem('date_select')
+    },
+    movieID(){
+      return localStorage.getItem('moviesId')
+    },
+    time_sel(){
+      return localStorage.getItem('time_sel')
+    },
+    seats_list(){
+      return JSON.parse(localStorage.getItem('seats_sel'))
+    },
+    locationID(){
+      return localStorage.getItem('locationID')
+    },
+    roomname(){
+      return localStorage.getItem('roomname')
+    }
   },
   methods: {
     printDiv(divName) {
@@ -203,6 +230,9 @@ div.container {
 }
 .linethrough {
   text-decoration: line-through;
+}
+.btn{
+    color: #fff;
 }
 @media only screen and (max-width: 1150px) {
   .container .item {
