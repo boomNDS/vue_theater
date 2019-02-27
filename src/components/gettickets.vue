@@ -16,14 +16,13 @@
               </div>
             </div>
 
-            <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.
-              <a>@bulmaio</a>.
-              <a href="#">#css</a>
-              <a href="#">#responsive</a>
+            <div class="has-text-left">
+              <p><b>Date:</b> 27 กพ 2562</p>
+              <p><b>Theater</b> 4</p>
+              <h4><b>A1, A2</b></h4>
+              <p><b>Price</b> 120 THB</p>
               <br>
-              <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              <time datetime="2016-1-1">9.30 AM - 9.45 AM<br> 27 กพ 2562</time>
             </div>
           </div>
           <button class="button is-success">Email</button>

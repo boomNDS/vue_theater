@@ -32,26 +32,26 @@
               <p>Child</p>
             </div>
             <div class="column is-6">
-              <button class="num_btn" @click= "validateChildNumSeatMinus">-</button>
-              <input type="number" :max= "maxcount" min="0" v-model= "childcount">
-              <button class="num_btn" @click = "validateChildNumSeatPlus">+</button>
+              <button class="num_btn" @click="validateChildNumSeatMinus">-</button>
+              <input type="number" :max="maxcount" min="0" v-model="childcount">
+              <button class="num_btn" @click="validateChildNumSeatPlus">+</button>
             </div>
             <div class="column is-6">
               <p>Adult</p>
             </div>
             <div class="column is-6">
               <!-- <button class="num_btn" @click="adultcount <= 0 ? adultcount = 0: adultcount--">-</button> -->
-              <button class="num_btn" @click = "validateAdultNumSeatMinus">-</button>
+              <button class="num_btn" @click="validateAdultNumSeatMinus">-</button>
               <input type="number" :max="maxcount" min="0" v-model="adultcount">
-              <button class="num_btn" @click = "validateAdultNumSeatPlus">+</button>
+              <button class="num_btn" @click="validateAdultNumSeatPlus">+</button>
             </div>
             <div class="column is-6">
               <p>Older Person</p>
             </div>
             <div class="column is-6">
-              <button class="num_btn" @click = "validateOtherNumSeatMinus">-</button>
+              <button class="num_btn" @click="validateOtherNumSeatMinus">-</button>
               <input type="number" :max="maxcount" min="0" v-model="oldercount">
-              <button class="num_btn" @click = "validateOtherNumSeatPlus">+</button>
+              <button class="num_btn" @click="validateOtherNumSeatPlus">+</button>
             </div>
           </div>
         </div>
@@ -73,60 +73,16 @@
             <div class="column is-6">
               <p>Older Person</p>
             </div>
-<<<<<<< HEAD
-            <div class="column is-6-desktop is-12-moblie box">
-                <h3 class="is-size-3">Tickets</h3>
-                <div class="columns is-multiline">
-                    <div class="column is-12">
-                            <b>No.</b> <span v-for="seat in seats_list" :key="seat">{{seat+" "}}</span>                        
-                    </div>
-                    <div class="column is-6">
-                        <p>Child</p>
-                    </div>
-                    <div class="column is-6">
-                        <button class="num_btn" @click="childcount <= 0 ? childcount = 0: childcount--;adultcount++">-</button>
-                        <input type="number" :max="maxcount" min="0" v-model="childcount">
-                        <button class="num_btn" @click="childcount++;oldercount--">+</button>
-                    </div>
-                    <div class="column is-6">
-                        <p>Adult</p>
-                    </div>
-                    <div class="column is-6">
-                        <!-- <button class="num_btn" @click="adultcount <= 0 ? adultcount = 0: adultcount--">-</button> -->
-                        <button class="num_btn" @click="adultcount <= 0 ? adultcount = 0: adultcount--;childcount++">-</button>
-                        <input type="number" :max="maxcount" min="0" v-model="adultcount">
-                        <button class="num_btn" @click="childcount <= 0? oldercount--: childcount--;adultcount++">+</button>
-                    </div>
-                    <div class="column is-6">
-                        <p>Older Person</p>
-                    </div>
-                    <div class="column is-6">
-                        <button class="num_btn" @click="oldercount <= 0? oldercount = 0: oldercount--;adultcount++;">-</button>
-                        <input type="number" :max="maxcount" min="0" v-model="oldercount">
-                        <button class="num_btn" @click="oldercount++">+</button>
-                    </div>
-                </div>
-=======
-            <div class="column is-6">
-              <p>{{"80 X "+oldercount}}</p>
->>>>>>> 1c8529895a814309f9f577669ebfc39178d304d1
-            </div>
-            <div class="column is-6">
-              <p>Total</p>
-            </div>
-            <div class="column is-6">
-              <p>{{total}}</p>
-            </div>
           </div>
-        </div>
-        <div class="column is-12 columns">
-          <div class="column">
-            <button class="button is-success">
-              <router-link :to="'/payment'" class="btn">ยืนยัน</router-link>
-            </button>
-            <button class="button is-danger">
-              <router-link :to="'/'" class="btn">ยกเลิก</router-link>
-            </button>
+          <div class="column is-12 columns">
+            <div class="column">
+              <button class="button is-success">
+                <router-link :to="'/payment'" class="btn">ยืนยัน</router-link>
+              </button>
+              <button class="button is-danger">
+                <router-link :to="'/'" class="btn">ยกเลิก</router-link>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -147,34 +103,6 @@ export default {
     seat
   },
   data() {
-<<<<<<< HEAD
-      return{
-          movies: movies,
-          theaters: theaters,
-          seats: seats,
-          childcount: 0,
-          oldercount: 0,
-          maxcount: JSON.parse(localStorage.getItem('seats_sel')).length,
-          movieID: localStorage.getItem('moviesId'),
-          locationID: localStorage.getItem('locationID'),
-          roomname: localStorage.getItem('roomname'),
-          date_select: localStorage.getItem('date_select'),
-          time_sel: localStorage.getItem('time_sel'),
-          seats_list: JSON.parse(localStorage.getItem('seats_sel'))
-      }
-  },
-    mounted() {
-      localStorage.setItem("seats_sel", JSON.stringify(["AC","BC","CC","DC"]))
-  },
-  computed: { 
-    total(){
-            let num = (this.childcount*80)+(this.adultcount*120)+(this.oldercount*80)
-            localStorage.setItem("total", num)
-            return num
-        },
-        adultcount(){
-            return this.maxcount-this.childcount-this.oldercount
-=======
     return {
       movies: movies,
       theaters: theaters,
@@ -192,46 +120,45 @@ export default {
   methods: {
     validateChildNumSeatPlus() {
       if (this.oldercount > 0) {
-        this.oldercount--
-        this.childcount++
+        this.oldercount--;
+        this.childcount++;
       } else if (this.adultcount > 0) {
-        this.adultcount--
-        this.childcount++
-      } 
+        this.adultcount--;
+        this.childcount++;
+      }
     },
     validateChildNumSeatMinus() {
       if (this.childcount > 0) {
-        this.childcount--
+        this.childcount--;
       }
     },
-    validateAdultNumSeatPlus(){
-     if(this.oldercount > 0){
-         this.oldercount--
-         this.adultcount++
-     }else if(this.childcount> 0){
-         this.childcount--
-         this.adultcount++
-     }
+    validateAdultNumSeatPlus() {
+      if (this.oldercount > 0) {
+        this.oldercount--;
+        this.adultcount++;
+      } else if (this.childcount > 0) {
+        this.childcount--;
+        this.adultcount++;
+      }
     },
-    validateAdultNumSeatMinus(){
-        if(this.adultcount >0 ){
-            this.adultcount -=1
->>>>>>> 1c8529895a814309f9f577669ebfc39178d304d1
-        }
+    validateAdultNumSeatMinus() {
+      if (this.adultcount > 0) {
+        this.adultcount -= 1;
+      }
     },
-    validateOtherNumSeatPlus(){
-        if(this.childcount > 0){
-            this.childcount--
-            this.oldercount++
-        }else if(this.adultcount > 0){
-            this.adultcount--
-            this.oldercount++
-        }
+    validateOtherNumSeatPlus() {
+      if (this.childcount > 0) {
+        this.childcount--;
+        this.oldercount++;
+      } else if (this.adultcount > 0) {
+        this.adultcount--;
+        this.oldercount++;
+      }
     },
-    validateOtherNumSeatMinus(){
-        if(this.oldercount > 0){
-            this.oldercount--
-        }
+    validateOtherNumSeatMinus() {
+      if (this.oldercount > 0) {
+        this.oldercount--;
+      }
     }
   },
   mounted() {
